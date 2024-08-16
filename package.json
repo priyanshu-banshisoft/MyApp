@@ -20,6 +20,7 @@
     "expo-status-bar": "~1.12.1",
     "react": "18.2.0",
     "react-native": "0.74.5",
+    "react-native-animatable": "^1.4.0",
     "react-native-image-picker": "^7.1.2",
     "react-native-modal": "^13.0.1",
     "react-native-permissions": "^4.1.5",
@@ -30,7 +31,9 @@
     "react-native-screens": "3.31.1",
     "react-native-ssl-pinning": "^1.5.7",
     "react-native-svg": "15.2.0",
-    "react-native-toast-message": "^2.2.0"
+    "react-native-toast-message": "^2.2.0",
+    "typescript": "^5.5.4",
+    "@types/react": "~18.2.79"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

@@ -13,7 +13,6 @@ export const BaseApplicationProvider = ({ children }) => {
   const [isConnected, setIsConnected] = useState(true);
 
   useEffect(() => {
-    // Load auth token from AsyncStorage when the app starts
     const loadAuthToken = async () => {
       const token = await AsyncStorage.getItem('authToken');
       if (token) {
