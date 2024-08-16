@@ -25,8 +25,9 @@ apiClient.interceptors.request.use(
 apiClient.interceptors.response.use(
   (response) => response,
   (error) => {
+    const navigation = useNavigation();
     if (error.response && error.response.status === 401) {
-      // navigation.navigate('Login');
+      navigation.navigate('Splash');
     }
     return Promise.reject(error);
   }
