@@ -5,6 +5,7 @@ import { GlobalStateProvider } from '../utils/GlobalState';
 import { LoaderProvider } from '../components/GlobalLoader';
 import {BottomSheetProvider} from '../../src/utils/BottomSheetUtils'
 import { RootSiblingParent } from 'react-native-root-siblings';
+import { DialogProvider } from '../utils/DialogProvider';
 
 
 
@@ -13,11 +14,13 @@ const AppProviders = ({ children }) => {
     <BaseApplicationProvider>
       <LoaderProvider>
         <BottomSheetProvider>
+          <DialogProvider>
         <RootSiblingParent>
             <GlobalStateProvider>
               {children}
             </GlobalStateProvider>
           </RootSiblingParent>
+          </DialogProvider>
         </BottomSheetProvider>
       </LoaderProvider>
     </BaseApplicationProvider>
