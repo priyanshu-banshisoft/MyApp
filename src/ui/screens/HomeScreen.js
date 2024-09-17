@@ -14,13 +14,14 @@ function HomeScreen() {
     const { showLoader, hideLoader } = useLoader();
     const {showBottomSheet} = useBottomSheet();
   
-    const fetchData = () => {
+    const fetchData = async() => {
+      showLoader();
         // showAlert({
         //     title:''
             
         // })
         // showSweetAlert({})
-        showBottomSheet(<ExampleBottomSheet />);
+        //showBottomSheet(<ExampleBottomSheet />);
     //   if (!checkInternetConnection()) {
     //     console.log('No internet connection');
     //     return;
@@ -28,22 +29,25 @@ function HomeScreen() {
     
     //   showLoader();
       
-    //   try {
-    //     //const response = await apiClient.post(ApiPaths.LOGIN)
-    //     showBottomSheet(<ExampleBottomSheet />);
-    //     showToast('Hello');
-    //     //console.log('Auth Token:', response.data);
-    //   } catch (error) {
-    //     console.error('Error:', error);
-    //   } finally {
-    //     hideLoader();
-    //   }
+      try {
+        //const response = await apiClient.post(ApiPaths.LOGIN)
+        const response = await apiClient.get('products/get_category');
+        console.log(response);
+
+        //showBottomSheet(<ExampleBottomSheet />);
+        //showToast('Hello');
+        //console.log('Auth Token:', response.data);
+      } catch (error) {
+        console.log('Error:', error);
+      } finally {
+        hideLoader();
+      }
     };
   
     return (
       <View>
         <Text>Home Screen</Text>
-        <Button title="Fetch Data" onPress={fetchData} />
+        <Button title="Fetch Data" onPress={ fetchData} />
       </View>
     );
   }

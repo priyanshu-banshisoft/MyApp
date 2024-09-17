@@ -2,6 +2,10 @@
 import axios from 'axios';
 import AsyncStore from '../utils/AsyncStore';
 import AppConstants from '../config/AppConstants';
+import { useNavigation } from '@react-navigation/native'; 
+import { replace } from '../utils/NavigationServiceUtils';
+import { showToast } from '../utils/ToastUtils';
+
 
 const apiClient = axios.create({
   baseURL: AppConstants.apiUrl, 
@@ -25,9 +29,10 @@ apiClient.interceptors.request.use(
 apiClient.interceptors.response.use(
   (response) => response,
   (error) => {
-    const navigation = useNavigation();
+    
     if (error.response && error.response.status === 401) {
-      navigation.navigate('Splash');
+      showToast('Session Expied, Please Login Again');
+      replace('Splash')
     }
     return Promise.reject(error);
   }
